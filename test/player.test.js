@@ -1,5 +1,8 @@
 const assert = require('assert')
+const sinon = require('sinon')
+
 const { getBestMove, player } = require('./../src/player')
+const helpers = require('./../src/helpers')
 
 describe('Player', () => {
   describe('player', () => {
@@ -15,6 +18,19 @@ describe('Player', () => {
         move: undefined,
         responseNumber: undefined
       })
+    })
+
+    it('should generate a random number if no one is provided at the start of the game', async () => {
+      const stub = sinon.stub(helpers, 'getRandomInt')
+      stub.returns(300)
+
+      const { responseNumber, move } = await player()
+
+      sinon.assert.called(stub)
+      assert(Number.isInteger(responseNumber))
+      assert(typeof move === 'undefined')
+
+      stub.restore()
     })
   })
 

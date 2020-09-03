@@ -1,13 +1,9 @@
 const readline = require('readline')
 const e = require('express')
 
-const players = ['PLAYER_1', 'PLAYER_2']
+const helpers = require('./helpers')
 
-const getRandomInt = (min, max) => {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min) + min)
-}
+const players = ['PLAYER_1', 'PLAYER_2']
 
 const getBestMove = n => [0, -1, 1][n % 3]
 
@@ -44,7 +40,7 @@ const player = async (number, interactiveMode) => {
 
   if (typeof number === 'undefined') {
     // Generate random number at the start of the game
-    responseNumber = getRandomInt(50, 350)
+    responseNumber = helpers.getRandomInt(50, 350)
   } else if (number > 1){
     move = interactiveMode ? await getUserMove(number) : getBestMove(number)
     responseNumber = (number + move) / 3

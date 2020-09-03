@@ -1,6 +1,6 @@
 module.exports = {
-	exitApp: (exitcode) => {
-		process.exit(exitcode || 0)
+  exitApp: (exitcode) => {
+    process.exit(exitcode || 0)
   },
   getRandomInt: (min, max) => {
     min = Math.ceil(min)

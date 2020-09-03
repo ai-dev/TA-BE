@@ -7,6 +7,8 @@
 Test coverage is not the best. I've just added some demo test to showcase how the codebase can be tested.  
 There is no anti-cheat in place, one user could easly send numbers that are out of what's allowed. The code trusts the users.
 
+Both players use the same codebase. There are functions to manage the matchmaking and understand if the current process is player 1 or 2.
+
 ## How to use
 Install dependencies (node v12.16.2)
 
